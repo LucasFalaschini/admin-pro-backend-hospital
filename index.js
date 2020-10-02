@@ -11,23 +11,20 @@ const app = express();
 // Configurar CORS
 app.use(cors());
 
+// Lectura y parseo del body
+app.use(express.json());
 
 // Base de datos
 dbConnection();
-
-
 
 // USUARIO: LucasFalas
 // PASS: LFDBMONGO2020
 
 // Rutas
-app.get('/', (req, res) => {
+app.use('/api/usuarios', require('./routes/usuarios'));
+app.use('/api/login', require('./routes/auth'));
 
-    res.json({
-        ok: true,
-        msg: 'Hola Mundo'
-    });
-});
+
 
 
 
