@@ -33,11 +33,12 @@ const UsuarioSchema = Schema({
 
 });
 
+// Extraccion para que se vea bien
 UsuarioSchema.method('toJSON', function() { 
     const {__v, _id, password, ...object} = this.toObject();
     object.uid = _id;
     return object;
 })
 
-
+// Para exportar el modelo
 module.exports = model('Usuario', UsuarioSchema);
