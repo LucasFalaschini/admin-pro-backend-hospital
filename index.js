@@ -16,9 +16,15 @@ app.use(express.json());
 
 // Base de datos
 dbConnection();
-
 // USUARIO: LucasFalas
 // PASS: LFDBMONGO2020
+
+
+// Directorio publico
+// Middleware
+app.use(express.static('public'));
+
+
 
 // Rutas
 app.use('/api/usuarios', require('./routes/usuarios'));
